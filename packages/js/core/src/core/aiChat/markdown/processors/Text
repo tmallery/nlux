@@ -1,0 +1,39 @@
+import {MarkdownElementName} from '../../../../types/markdown/markdownElement';
+import {MarkdownProcessorInterface} from '../../../../types/markdown/markdownProcessorInterface';
+import {ProcessorWithChildren} from './baseProcessorWithChildren';
+
+export class TextProcessor extends ProcessorWithChildren {
+    constructor(
+        parent: MarkdownProcessorInterface,
+        openingSequence?: string,
+        initialContent?: string,
+    ) {
+        super(
+            parent,
+            'Paragraph',
+            openingSequence ?? null,
+            initialContent ?? null,
+            null,
+        );
+    }
+
+    get canExistAtRootLevel(): boolean {
+        return true;
+    }
+
+    get nestedMarkdownElements(): MarkdownElementName[] | 'all' | 'none' {
+        return 'none';
+    }
+
+    get removeWhenEmpty(): boolean {
+        return true;
+    }
+
+    get yieldingMarkdownElements(): MarkdownElementName[] | 'none' {
+        return 'none';
+    }
+
+    createElement(): HTMLElement {
+        return document.createElement('p');
+    }
+}
