@@ -9,7 +9,7 @@ on:
   pull_request:
     branches: [ "main", "latest" ]
   workflow_dispatch:
-    branches: [ "main", "latest" ]
+    branches: [ "main", "latest", "Adding-Text-Format" ]
 
 jobs:
   build:
