@@ -11,6 +11,7 @@ import {ItalicUnderscoreProcessor} from './processors/ItalicUnderscore';
 import {LineBreakProcessor} from './processors/LineBreak';
 import {LinkProcessor} from './processors/Link';
 import {ParagraphProcessor} from './processors/Paragraph';
+import {TextProcessor} from './processors/Text';
 
 export const createMarkdownProcessor = (
     markdownElementName: MarkdownElementName,
@@ -19,6 +20,18 @@ export const createMarkdownProcessor = (
     initialContent?: string,
     options?: MarkdownProcessorOptions,
 ): void => {
+    if (markdownElementName === 'Text') {
+        const newProcessor = new TextProcessor(
+            parent,
+            sequence,
+            initialContent,
+        );
+
+        newProcessor.init();
+        parent.setParsingChild(newProcessor);
+        return;
+    }
+
     if (markdownElementName === 'Paragraph') {
         const newParagraph = new ParagraphProcessor(
             parent,

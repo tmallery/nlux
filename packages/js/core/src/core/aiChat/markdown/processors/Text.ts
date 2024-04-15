@@ -10,7 +10,7 @@ export class TextProcessor extends ProcessorWithChildren {
     ) {
         super(
             parent,
-            'Paragraph',
+            'Text',
             openingSequence ?? null,
             initialContent ?? null,
             null,

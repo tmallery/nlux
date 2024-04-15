@@ -18,4 +18,5 @@ export type MarkdownElementName = 'Root'
     | 'CodeBlock'
     | 'HorizontalRule'
     | 'Link'
-    | 'Image';
+    | 'Image'
+    | 'Text';

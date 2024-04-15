@@ -22,4 +22,5 @@ export const allMarkdownElementNames: MarkdownElementName[] = [
     'HorizontalRule',
     'Link',
     'Image',
+    'Text',
 ];

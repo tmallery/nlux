@@ -12,6 +12,7 @@ import {
 } from './Heading';
 import {LineBreakParsers} from './LineBreak';
 import {linkParsers} from './Link';
+import {textParsers} from './Text';
 
 type SequenceParsingFunction = RegExp | ((sequence: string) => boolean);
 
@@ -58,6 +59,8 @@ parsersByMarkdownElementName.set('ItalicUnderscore', ItalicUnderscore);
 
 parsersByMarkdownElementName.set('Link', linkParsers);
 parsersByMarkdownElementName.set('LineBreak', LineBreakParsers);
+
+parsersByMarkdownElementName.set('Text', textParsers);
 
 // TODO - Same as above, but for all markdown elements
 
